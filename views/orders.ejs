@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="/css/category.css">
+
+<div class="card-container">
+  <div class="card">
+    <h2>Customer Form </h2>
+    <form method="POST" action="/customers">
+      <label for="name">Customer Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" required>
+
+      <button type="submit">Add Customer</button>
+    </form>
+
+    <h2>Order Form</h2>
+    <form method="POST" action="/order">
+      <label for="customerId">Customer ID:</label>
+      <input type="text" id="customerId" name="customerId" required>
+
+      <label for="sku">Product SKU:</label>
+      <input type="text" id="sku" name="sku" required>
+
+      <label for="orderQty">Order Quantity:</label>
+      <input type="number" id="orderQty" name="orderQty" required>
+
+      <button type="submit">Place Order</button>
+    </form>
+
+    <button onclick="window.location.href='/dashboard'">Back to Dashboard</button>
+  </div>
+
+  <div class="card">
+    <h2>Customer List</h2>
+
+    <% customer.forEach((cu, index)=> { %>
+      <h4>
+        <%= index + 1 %>. Name:
+          <%= cu.name %>
+
+      </h4>
+      <p> CustomerId :    
+       <b><%= cu._id %> </b> 
+      </h4>
+    </p> Location:
+        <%= cu.location %>
+
+      </h4>
+      <% }) %>
+
+  </div>
+
+  <div class="card">
+    <h2>Order List</h2>
+    <ul>
+      <% order.forEach((ord , idx)=> { %>
+
+        <li>
+          <%= idx + 1 %>. CustomerId : <b>
+              <%= ord.customerId %>
+            </b>
+        </li>
+        <li> ProductId (sku) : <b>
+            <%= ord.sku %>
+          </b></li>
+
+        <li>Quantity : <b>
+            <%= ord.quantity %>
+          </b></li>
+
+        <li>Location : <b>
+            <%= ord.location %>
+          </b></li>
+
+
+        <% }) %>
+    </ul>
+  </div>
+
+</div>

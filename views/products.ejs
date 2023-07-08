@@ -1,0 +1,41 @@
+<!-- Add inventory form -->
+<link rel="stylesheet" href="/css/inventory.css" ) />
+
+
+<div class="form-card">
+  <h2>Add Product</h2>
+
+  <form action="/products" method="POST">
+
+    <label for="productName">Product Name:</label>
+    <input type="text" name="productName" id="productName" required>
+
+    <label for="category">Category:</label>
+    <input type="text" name="category" id="category" required>
+
+    <label for="subCategory">Sub Category:</label>
+    <input type="text" name="subCategory" id="subCategory" required>
+
+    <label for="imageLink">Image Link:</label>
+    <input type="text" name="imageLink" id="imageLink" required>
+
+    <button type="submit">Add Prdoucts</button>
+  </form>
+
+  <button onclick="window.location.href='/dashboard'">Back to Dashboard</button>
+</div>
+
+<ol>
+<% products.forEach((product) => { %>
+  <li class="inventory-card">
+   <h3>Products</h3>
+   <ul>
+    <li>Name : <%= product.productName%></li>
+    <li>SKU: <b><%= product.sku %></b></li>
+    <li>Category: <%= product.category %></li>
+    <li>Subcategory: <%= product.subCategory %></li>
+    <li>Image Link: <%= product.imageLink %></li>
+  </ul>
+  </li>
+<% }); %>
+</ol>

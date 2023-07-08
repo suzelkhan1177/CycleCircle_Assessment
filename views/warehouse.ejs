@@ -1,0 +1,59 @@
+<!-- Add inventory form -->
+<link rel="stylesheet" href="/css/inventory.css" ) />
+
+
+<div class="form-card">
+  <h2>Add WareHouse</h2>
+
+  <form method="POST" action="/warehouse">
+    <label for="warehouseName">Warehouse Name:</label>
+    <input type="text" id="warehouseName" name="warehouseName" required>
+  
+    <label for="state">State:</label>
+    <input type="text" id="state" name="state" required>
+  
+    <label for="longitude">Longitude like 20.7128:</label>
+    <input type="text" id="longitude" name="longitude" placeholder="20.7128" required>
+    <br>
+    <label for="latitude">Latitude like -30.006:</label>
+    <input type="text" id="latitude" name="latitude" placeholder="-30.006" required>
+  
+    <label for="stockLimit">Stock Limit:</label>
+    <input type="number" id="stockLimit" name="stockLimit" required>
+  
+    <label for="currentStock">Current Stock:</label>
+    <input type="number" id="currentStock" name="currentStock" required>
+  
+    <button type="submit">Submit</button>
+  </form>
+  
+
+  <button onclick="window.location.href='/dashboard'">Back to Dashboard</button>
+</div>
+
+<ol>
+  <% warehouse.forEach((war) => { %>
+    <li class="inventory-card">
+     <h3>WareHouse </h3>
+     <ul> 
+      <li>Number : <b> <%= war.warehouseNumber %> </b></li>
+      <li>Name : <b> <%= war.warehouseName %> </b></li>
+      <li>State : <b> <%= war.state %> </b></li>
+      <li>Stock Limit : <b> <%= war.stockLimit %> </b></li>
+      <li>Current Stock : <b> <%= war.currentStock %> </b></li>
+      <li>
+        <strong>Longitude & Latitude:</strong> <br> <br>
+        <% Object.keys(war.location).forEach((key) => { %>
+            <% if (Array.isArray(war.location[key])) { %>
+                <% war.location[key].forEach((coord) => { %>
+                    <strong> <%= coord %> ,</strong>
+                <% }) %>
+            <% } %>
+        <% }) %>
+    </li>
+    </ul>
+    </li>
+  <% }); %>
+  </ol>
+
+

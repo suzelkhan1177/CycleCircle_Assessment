@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="/css/category.css">
+
+<div class="card-container">
+    <div class="card">
+        <h2>Add State</h2>
+        <form method="POST" action="/states">
+            <label for="stateName">State Name:</label>
+            <input type="text" id="stateName" name="stateName" required>
+
+            <button type="submit">Create State</button>
+        </form>
+
+        <button onclick="window.location.href='/dashboard'">Back to Dashboard</button>
+    </div>
+
+
+    <div class="card">
+        <% state.forEach((st , idx)=> { %>
+            <ul>
+                <h3><%= idx +1 %>. State ID : <%= st.stateId %>
+                </h3>
+                <li> State Name : <%= st.stateName %>
+                </li>
+            </ul>
+            <% }) %>
+    </div>

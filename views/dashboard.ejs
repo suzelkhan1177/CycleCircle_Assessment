@@ -1,0 +1,28 @@
+<!-- dashboard.ejs -->
+
+<link rel="stylesheet" href="/css/dashboard.css" ) />
+
+<div class="dashboard-card">
+  <h2>Welcome to the Dashboard</h2>
+  <h3>Email: <%- locals.email %></h3>
+  <h3>Business Name: <%- locals.businessName %></h3>
+
+  <div class="button-container">
+    <button onclick="window.location.href='/add-products'">Add Product</button>
+    <button onclick="window.location.href='/add-state'">Add State</button>
+    <button onclick="window.location.href='/add-warehouse'">Add WareHouse</button>
+    <button onclick="window.location.href='/add-stock'">Add Stock</button>
+    <button onclick="window.location.href='/add-orders'">Add Orders</button>
+  </div>
+
+  <form method="POST" action="/logout">
+    <button>Logout</button>
+  </form>
+</div>
+
+ 
+  
+
+  
+
+ 
