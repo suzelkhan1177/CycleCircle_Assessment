@@ -3,6 +3,18 @@ const Product = require('../models/product');
 const Warehouse = require('../models/warehouse');
 const { Stock } = require('../models/Customer_Order_Stock');
 
+module.exports.getStock = async (req, res) => {
+  try {
+    const stock = await Stock.find();
+    res.json(stock);
+  } catch (err) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+
+
+
 // Add stock route
 module.exports.stock = async (req, res) => {
   try {

@@ -2,6 +2,15 @@ const Warehouse = require('../models/warehouse');
 const State = require('../models/state');
 
 
+module.exports.getWarehouse = async (req, res) => {
+  try {
+    const warehouse = await Warehouse.find();
+    res.json(warehouse);
+  } catch (err) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
 module.exports.warehouse = async (req, res) => {
     const { warehouseName, state, stockLimit, longitude, latitude , currentStock} = req.body;
     

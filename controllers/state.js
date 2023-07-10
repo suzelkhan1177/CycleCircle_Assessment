@@ -1,5 +1,15 @@
 const State = require('../models/state');
 
+module.exports.getStates = async (req, res) => {
+  try {
+    const state = await State.find();
+    res.json(state);
+  } catch (err) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+
 module.exports.states = async (req, res) => {
     try {
       const { stateName } = req.body;

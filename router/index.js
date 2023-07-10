@@ -28,23 +28,29 @@ router.post('/logout',authMiddleware, User.logOut );
 
 // products  Api
 router.post('/products',authMiddleware, Products.products );
+router.get('/products', authMiddleware, Products.getProducts);
 
 //WareHouse  Api
 router.post('/warehouse',authMiddleware, Warehouse.warehouse);
+router.get('/warehouse',authMiddleware, Warehouse.getWarehouse);
 
 
 //Stock  Api
 router.post('/stock',authMiddleware, Stock.stock);
+router.get('/stock',authMiddleware, Stock.getStock);
 
 
 //State  Api
 router.post('/states',authMiddleware, State.states);
+router.get('/states',authMiddleware, State.getStates);
 
 //Orders  Api
 router.post('/order',authMiddleware, Order.order);
+router.get('/order',authMiddleware, Order.getOrder);
 
 //Customer  Api
 router.post('/customers',authMiddleware, Order.customers);
+router.get('/customers',authMiddleware, Order.getCustomers);
 
 
 

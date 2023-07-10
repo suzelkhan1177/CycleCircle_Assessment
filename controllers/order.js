@@ -39,7 +39,14 @@ module.exports.order = async (req, res) => {
     }
   };
   
-  
+  module.exports.getOrder = async (req, res) => {
+    try {
+      const order = await Order.find();
+      res.json(order);
+    } catch (err) {
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  };
   
   
   module.exports.getCustomers= async (req, res) => {

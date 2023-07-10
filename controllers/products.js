@@ -1,6 +1,15 @@
 
 const Product = require('../models/product');
 
+module.exports.getProducts = async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
 
 module.exports.products = async (req, res) => {
     const {productName, category, subCategory, imageLink} = req.body;
